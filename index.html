@@ -103,19 +103,21 @@
     letter-spacing: .06em;
     color: #e7e9f3;
   }
-  .card-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 4px;
-    background: rgba(255,255,255,.05);
-    color: var(--accent, #5fd6d6);
-    border: 1px solid rgba(255,255,255,.07);
-    margin-top: auto;
-    width: fit-content;
+  #search {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 44px;
+    display: block;
+    background: #151822;
+    border: 1px solid #1e2236;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #e7e9f3;
+    font: inherit;
+    font-size: 13px;
   }
+  #search:focus { outline: none; border-color: #5fd6d6; }
+  .card.hidden { display: none; }
 </style>
 </head>
 <body>
@@ -125,6 +127,8 @@
   <p>22 games &mdash; open any folder and play in-browser</p>
 </header>
 
+<input type="search" id="search" placeholder="Search games…" oninput="document.querySelectorAll('.card').forEach(c => c.classList.toggle('hidden', !c.querySelector('.card-name').textContent.toLowerCase().includes(this.value.toLowerCase())))">
+
 <!-- Grid / Logic -->
 <div class="section-label">Grid &amp; Logic</div>
 <div class="grid">
@@ -132,55 +136,46 @@
   <a class="card" href="Snake/index.html" style="--accent:#7de2a8">
     <img class="card-thumb" src="images/Snake.jpg" alt="">
     <div class="card-name">Snake</div>
-    <span class="card-tag">arrows / wasd</span>
   </a>
 
   <a class="card" href="2048/index.html" style="--accent:#f2c14e">
     <img class="card-thumb" src="images/2048.jpg" alt="">
     <div class="card-name">2048</div>
-    <span class="card-tag">arrows / swipe</span>
   </a>
 
   <a class="card" href="Minesweeper/index.html" style="--accent:#8fb8ff">
     <img class="card-thumb" src="images/Minesweeper.jpg" alt="">
     <div class="card-name">Minesweeper</div>
-    <span class="card-tag">click / right-click</span>
   </a>
 
   <a class="card" href="FifteenPuzzle/index.html" style="--accent:#c08bff">
     <img class="card-thumb" src="images/FifteenPuzzle.jpg" alt="">
     <div class="card-name">15 Puzzle</div>
-    <span class="card-tag">click / arrows</span>
   </a>
 
   <a class="card" href="LightsOut/index.html" style="--accent:#f2c14e">
     <img class="card-thumb" src="images/LightsOut.jpg" alt="">
     <div class="card-name">Lights Out</div>
-    <span class="card-tag">click</span>
   </a>
 
   <a class="card" href="Sokoban/index.html" style="--accent:#f0b27a">
     <img class="card-thumb" src="images/Sokoban.jpg" alt="">
     <div class="card-name">Sokoban</div>
-    <span class="card-tag">arrows / wasd</span>
   </a>
 
   <a class="card" href="Nonogram/index.html" style="--accent:#5fd6d6">
     <img class="card-thumb" src="images/Nonogram.jpg" alt="">
     <div class="card-name">Nonogram</div>
-    <span class="card-tag">click / drag</span>
   </a>
 
   <a class="card" href="Sudoku/index.html" style="--accent:#8fb8ff">
     <img class="card-thumb" src="images/Sudoku.jpg" alt="">
     <div class="card-name">Sudoku</div>
-    <span class="card-tag">click + keys</span>
   </a>
 
   <a class="card" href="Match3/index.html" style="--accent:#c08bff">
     <img class="card-thumb" src="images/Match3.jpg" alt="">
     <div class="card-name">Match Three</div>
-    <span class="card-tag">click / tap</span>
   </a>
 
 </div>
@@ -192,25 +187,21 @@
   <a class="card" href="Wordle/index.html" style="--accent:#7de2a8">
     <img class="card-thumb" src="images/Wordle.jpg" alt="">
     <div class="card-name">Wordle</div>
-    <span class="card-tag">keyboard</span>
   </a>
 
   <a class="card" href="Hangman/index.html" style="--accent:#ff8080">
     <img class="card-thumb" src="images/Hangman.jpg" alt="">
     <div class="card-name">Hangman</div>
-    <span class="card-tag">click / keyboard</span>
   </a>
 
   <a class="card" href="TicTacToe/index.html" style="--accent:#5fd6d6">
     <img class="card-thumb" src="images/TicTacToe.jpg" alt="">
     <div class="card-name">Tic-Tac-Toe</div>
-    <span class="card-tag">click</span>
   </a>
 
   <a class="card" href="ConnectFour/index.html" style="--accent:#f2c14e">
     <img class="card-thumb" src="images/ConnectFour.jpg" alt="">
     <div class="card-name">Connect Four</div>
-    <span class="card-tag">click</span>
   </a>
 
 </div>
@@ -222,49 +213,41 @@
   <a class="card" href="Breakout/index.html" style="--accent:#7de2a8">
     <img class="card-thumb" src="images/Breakout.jpg" alt="">
     <div class="card-name">Breakout</div>
-    <span class="card-tag">mouse / arrows</span>
   </a>
 
   <a class="card" href="Pong/index.html" style="--accent:#8fb8ff">
     <img class="card-thumb" src="images/Pong.jpg" alt="">
     <div class="card-name">Pong</div>
-    <span class="card-tag">mouse / arrows</span>
   </a>
 
   <a class="card" href="SpaceInvaders/index.html" style="--accent:#7de2a8">
     <img class="card-thumb" src="images/SpaceInvaders.jpg" alt="">
     <div class="card-name">Space Invaders</div>
-    <span class="card-tag">arrows + space</span>
   </a>
 
   <a class="card" href="Flappy/index.html" style="--accent:#f2c14e">
     <img class="card-thumb" src="images/Flappy.jpg" alt="">
     <div class="card-name">Flappy</div>
-    <span class="card-tag">click / space</span>
   </a>
 
   <a class="card" href="Asteroids/index.html" style="--accent:#5fd6d6">
     <img class="card-thumb" src="images/Asteroids.jpg" alt="">
     <div class="card-name">Asteroids</div>
-    <span class="card-tag">arrows + space</span>
   </a>
 
   <a class="card" href="DoodleJump/index.html" style="--accent:#c08bff">
     <img class="card-thumb" src="images/DoodleJump.jpg" alt="">
     <div class="card-name">Sky Hopper</div>
-    <span class="card-tag">arrows / tilt</span>
   </a>
 
   <a class="card" href="tetris/tetris.html" style="--accent:#f2c14e">
     <img class="card-thumb" src="images/tetris.jpg" alt="">
     <div class="card-name">Tetris</div>
-    <span class="card-tag">arrows / touch</span>
   </a>
 
   <a class="card" href="ccleste/ccleste.html" style="--accent:#8fb8ff">
     <img class="card-thumb" src="images/ccleste.jpg" alt="">
     <div class="card-name">Celeste (ccleste)</div>
-    <span class="card-tag">arrows + z/x</span>
   </a>
 
 </div>
@@ -276,7 +259,6 @@
   <a class="card" href="Klondike/index.html" style="--accent:#7de2a8">
     <img class="card-thumb" src="images/Klondike.jpg" alt="">
     <div class="card-name">Klondike Solitaire</div>
-    <span class="card-tag">drag / dbl-click</span>
   </a>
 
 </div>
