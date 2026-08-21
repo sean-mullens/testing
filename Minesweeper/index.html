@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minesweeper</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#8fb8ff;font-weight:600}
+.hud{display:flex;gap:16px;font-size:14px;color:#9aa3c7;font-variant-numeric:tabular-nums;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 11px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+#board{display:grid;gap:2px;background:#2a2f4a;padding:2px;border-radius:8px;user-select:none}
+.c{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;
+  background:#2b3149;border-radius:3px;cursor:pointer}
+.c:hover{background:#353c5c}
+.c.open{background:#1a1e2e;cursor:default}
+.c.open:hover{background:#1a1e2e}
+.c.mine{background:#7a2836}
+.c.flag{color:#ffb347}
+.n1{color:#7fb3ff}.n2{color:#7de2a8}.n3{color:#ff8080}.n4{color:#c08bff}
+.n5{color:#f2c14e}.n6{color:#5fd6d6}.n7{color:#e7e9f3}.n8{color:#9aa3c7}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Minesweeper</h1>
+<div class="hud">
+  <select id="level">
+    <option value="9,9,10">Beginner 9×9</option>
+    <option value="16,16,40">Intermediate 16×16</option>
+    <option value="30,16,99">Expert 30×16</option>
+  </select>
+  <span>Mines <b id="mines">10</b></span>
+  <span>Time <b id="time">0</b></span>
+  <button id="new">New game</button>
+</div>
+<div id="board"></div>
+<div class="msg" id="msg">Left click reveals. Right click flags. Double click a number to clear its neighbours.</div>
+<script src="game.js"></script>
+</body>
+</html>

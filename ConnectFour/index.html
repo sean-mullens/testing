@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect Four</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#f2c14e;font-weight:600}
+.hud{display:flex;gap:16px;font-size:14px;color:#9aa3c7;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+canvas{border-radius:10px;cursor:pointer}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Connect Four</h1>
+<div class="hud">
+  <select id="diff"><option value="2">Easy</option><option value="4">Medium</option><option value="6" selected>Hard</option></select>
+  <span>You <b id="w">0</b> · CPU <b id="l">0</b></span>
+  <button id="new">New round</button>
+</div>
+<canvas id="game" width="630" height="630"></canvas>
+<div class="msg" id="msg">Click a column to drop a disc.</div>
+<script src="game.js"></script>
+</body>
+</html>

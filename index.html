@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Game Hub</title>
+<style>
+  :root { color-scheme: dark; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    background: #0e1018;
+    color: #e7e9f3;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 80px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  header h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(90deg, #7de2a8 0%, #5fd6d6 40%, #8fb8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+  }
+  header p {
+    margin-top: 10px;
+    color: #6a7297;
+    font-size: 13px;
+    letter-spacing: .1em;
+  }
+
+  .section-label {
+    width: 100%;
+    max-width: 900px;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #454d6e;
+    border-bottom: 1px solid #1e2236;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 44px;
+  }
+
+  .card {
+    background: #151822;
+    border: 1px solid #1e2236;
+    border-radius: 12px;
+    padding: 22px 18px 18px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 160ms, transform 160ms, background 160ms;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(255,255,255,.03));
+    pointer-events: none;
+  }
+  .card:hover {
+    border-color: var(--accent, #5fd6d6);
+    background: #1a1e2c;
+    transform: translateY(-2px);
+  }
+  .card:active { transform: translateY(0); }
+
+  .card-icon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: #e7e9f3;
+  }
+  .card-desc {
+    font-size: 11px;
+    color: #5a6380;
+    line-height: 1.5;
+  }
+  .card-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: rgba(255,255,255,.05);
+    color: var(--accent, #5fd6d6);
+    border: 1px solid rgba(255,255,255,.07);
+    margin-top: auto;
+    width: fit-content;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Game Hub</h1>
+  <p>22 games &mdash; open any folder and play in-browser</p>
+</header>
+
+<!-- Grid / Logic -->
+<div class="section-label">Grid &amp; Logic</div>
+<div class="grid">
+
+  <a class="card" href="Snake/index.html" style="--accent:#7de2a8">
+    <div class="card-icon">🐍</div>
+    <div class="card-name">Snake</div>
+    <div class="card-desc">Eat, grow, don't bite yourself. Speed increases with each apple.</div>
+    <span class="card-tag">arrows / wasd</span>
+  </a>
+
+  <a class="card" href="2048/index.html" style="--accent:#f2c14e">
+    <div class="card-icon">🔢</div>
+    <div class="card-name">2048</div>
+    <div class="card-desc">Slide tiles to merge matching numbers. Reach 2048 to win.</div>
+    <span class="card-tag">arrows / swipe</span>
+  </a>
+
+  <a class="card" href="Minesweeper/index.html" style="--accent:#8fb8ff">
+    <div class="card-icon">💣</div>
+    <div class="card-name">Minesweeper</div>
+    <div class="card-desc">Reveal the board without hitting a mine. Flood-fill on zero cells.</div>
+    <span class="card-tag">click / right-click</span>
+  </a>
+
+  <a class="card" href="FifteenPuzzle/index.html" style="--accent:#c08bff">
+    <div class="card-icon">🔲</div>
+    <div class="card-name">15 Puzzle</div>
+    <div class="card-desc">Slide tiles into order. Always starts with a solvable shuffle.</div>
+    <span class="card-tag">click / arrows</span>
+  </a>
+
+  <a class="card" href="LightsOut/index.html" style="--accent:#f2c14e">
+    <div class="card-icon">💡</div>
+    <div class="card-name">Lights Out</div>
+    <div class="card-desc">Each click toggles a cell and its four neighbours. Turn them all off.</div>
+    <span class="card-tag">click</span>
+  </a>
+
+  <a class="card" href="Sokoban/index.html" style="--accent:#f0b27a">
+    <div class="card-icon">📦</div>
+    <div class="card-name">Sokoban</div>
+    <div class="card-desc">Push every crate onto a target square. Undo and reset at will.</div>
+    <span class="card-tag">arrows / wasd</span>
+  </a>
+
+  <a class="card" href="Nonogram/index.html" style="--accent:#5fd6d6">
+    <div class="card-icon">🖼️</div>
+    <div class="card-name">Nonogram</div>
+    <div class="card-desc">Logic-only picross puzzles. Every generated board is uniquely solvable.</div>
+    <span class="card-tag">click / drag</span>
+  </a>
+
+  <a class="card" href="Sudoku/index.html" style="--accent:#8fb8ff">
+    <div class="card-icon">🔣</div>
+    <div class="card-name">Sudoku</div>
+    <div class="card-desc">Classic 9×9. Backtracking generator guarantees a unique solution.</div>
+    <span class="card-tag">click + keys</span>
+  </a>
+
+  <a class="card" href="Match3/index.html" style="--accent:#c08bff">
+    <div class="card-icon">💎</div>
+    <div class="card-name">Match Three</div>
+    <div class="card-desc">Swap adjacent gems to make lines of three or more. Cascade for bonus.</div>
+    <span class="card-tag">click / tap</span>
+  </a>
+
+</div>
+
+<!-- Word / Paper -->
+<div class="section-label">Pen-and-Paper &amp; Word</div>
+<div class="grid">
+
+  <a class="card" href="Wordle/index.html" style="--accent:#7de2a8">
+    <div class="card-icon">🟩</div>
+    <div class="card-name">Wordle</div>
+    <div class="card-desc">Six guesses to find the five-letter word. Correct duplicate-letter scoring.</div>
+    <span class="card-tag">keyboard</span>
+  </a>
+
+  <a class="card" href="Hangman/index.html" style="--accent:#ff8080">
+    <div class="card-icon">🪢</div>
+    <div class="card-name">Hangman</div>
+    <div class="card-desc">Guess the hidden word letter by letter before the stick figure hangs.</div>
+    <span class="card-tag">click / keyboard</span>
+  </a>
+
+  <a class="card" href="TicTacToe/index.html" style="--accent:#5fd6d6">
+    <div class="card-icon">✖️</div>
+    <div class="card-name">Tic-Tac-Toe</div>
+    <div class="card-desc">Minimax AI — perfectly unbeatable on Hard. Easy and Medium blunder occasionally.</div>
+    <span class="card-tag">click</span>
+  </a>
+
+  <a class="card" href="ConnectFour/index.html" style="--accent:#f2c14e">
+    <div class="card-icon">🟡</div>
+    <div class="card-name">Connect Four</div>
+    <div class="card-desc">Drop discs to connect four in a row. Alpha-beta AI up to depth 6.</div>
+    <span class="card-tag">click</span>
+  </a>
+
+</div>
+
+<!-- Arcade -->
+<div class="section-label">Arcade</div>
+<div class="grid">
+
+  <a class="card" href="Breakout/index.html" style="--accent:#7de2a8">
+    <div class="card-icon">🧱</div>
+    <div class="card-name">Breakout</div>
+    <div class="card-desc">Bounce the ball to clear all bricks. Angle depends on paddle hit position.</div>
+    <span class="card-tag">mouse / arrows</span>
+  </a>
+
+  <a class="card" href="Pong/index.html" style="--accent:#8fb8ff">
+    <div class="card-icon">🏓</div>
+    <div class="card-name">Pong</div>
+    <div class="card-desc">Classic paddle tennis vs a CPU with realistic reaction delay. First to 7.</div>
+    <span class="card-tag">mouse / arrows</span>
+  </a>
+
+  <a class="card" href="SpaceInvaders/index.html" style="--accent:#7de2a8">
+    <div class="card-icon">👾</div>
+    <div class="card-name">Space Invaders</div>
+    <div class="card-desc">Hold the line against waves of pixel aliens. Shield blocks degrade on hit.</div>
+    <span class="card-tag">arrows + space</span>
+  </a>
+
+  <a class="card" href="Flappy/index.html" style="--accent:#f2c14e">
+    <div class="card-icon">🐦</div>
+    <div class="card-name">Flappy</div>
+    <div class="card-desc">One tap to flap. Pipes narrow as your score climbs. Beat your high score.</div>
+    <span class="card-tag">click / space</span>
+  </a>
+
+  <a class="card" href="Asteroids/index.html" style="--accent:#5fd6d6">
+    <div class="card-icon">☄️</div>
+    <div class="card-name">Asteroids</div>
+    <div class="card-desc">Vector ship, screen wrap, polygon collision. Split rocks until the field is clear.</div>
+    <span class="card-tag">arrows + space</span>
+  </a>
+
+  <a class="card" href="DoodleJump/index.html" style="--accent:#c08bff">
+    <div class="card-icon">🪐</div>
+    <div class="card-name">Sky Hopper</div>
+    <div class="card-desc">Bounce higher and higher on auto-scrolling platforms. Don't fall off the bottom.</div>
+    <span class="card-tag">arrows / tilt</span>
+  </a>
+
+  <a class="card" href="tetris/tetris.html" style="--accent:#f2c14e">
+    <div class="card-icon">🧩</div>
+    <div class="card-name">Tetris</div>
+    <div class="card-desc">The classic. Touch, mouse, and keyboard controls all supported.</div>
+    <span class="card-tag">arrows / touch</span>
+  </a>
+
+  <a class="card" href="ccleste/ccleste.html" style="--accent:#8fb8ff">
+    <div class="card-icon">🍓</div>
+    <div class="card-name">Celeste (ccleste)</div>
+    <div class="card-desc">Emscripten build of the classic PICO-8 Celeste demake. Precision platforming.</div>
+    <span class="card-tag">arrows + z/x</span>
+  </a>
+
+</div>
+
+<!-- Card -->
+<div class="section-label">Card</div>
+<div class="grid" style="max-width:320px;align-self:flex-start;margin-left:calc((100% - min(900px,100%)) / 2)">
+
+  <a class="card" href="Klondike/index.html" style="--accent:#7de2a8">
+    <div class="card-icon">🃏</div>
+    <div class="card-name">Klondike Solitaire</div>
+    <div class="card-desc">Full drag-and-drop. Draw one or three. Undo up to 120 half-moves.</div>
+    <span class="card-tag">drag / dbl-click</span>
+  </a>
+
+</div>
+
+</body>
+</html>

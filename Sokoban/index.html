@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sokoban</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#f0b27a;font-weight:600}
+.hud{display:flex;gap:16px;font-size:14px;color:#9aa3c7;font-variant-numeric:tabular-nums;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+canvas{background:#0c0e15;border:1px solid #2a2f4a;border-radius:10px}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Sokoban</h1>
+<div class="hud">
+  <select id="level"></select>
+  <span>Moves <b id="moves">0</b></span>
+  <span>Pushes <b id="pushes">0</b></span>
+  <button id="undo">Undo</button>
+  <button id="reset">Reset</button>
+</div>
+<canvas id="game" width="520" height="400"></canvas>
+<div class="msg" id="msg">Arrow keys or WASD to push every crate onto a target. U undoes, R resets.</div>
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flappy</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#f2c14e;font-weight:600}
+.hud{display:flex;gap:22px;font-size:14px;color:#9aa3c7;font-variant-numeric:tabular-nums}
+.hud b{color:#e7e9f3}
+canvas{background:#0c0e15;border:1px solid #2a2f4a;border-radius:10px;cursor:pointer;touch-action:none}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Flappy</h1>
+<div class="hud"><span>Score <b id="score">0</b></span><span>Best <b id="best">0</b></span></div>
+<canvas id="game" width="420" height="600"></canvas>
+<div class="msg" id="msg">Click or press Space to flap.</div>
+<script src="game.js"></script>
+</body>
+</html>

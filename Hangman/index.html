@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hangman</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#ff8080;font-weight:600}
+.hud{display:flex;gap:20px;font-size:14px;color:#9aa3c7;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+canvas{background:#0c0e15;border:1px solid #2a2f4a;border-radius:10px}
+#word{display:flex;gap:10px;font-size:30px;letter-spacing:.1em;text-transform:uppercase;min-height:42px}
+#word span{width:26px;border-bottom:3px solid #4a5280;text-align:center}
+#word span.found{border-color:#7de2a8}
+#word span.missed{color:#ff8080;border-color:#ff8080}
+#letters{display:grid;grid-template-columns:repeat(13,1fr);gap:5px;max-width:560px}
+#letters button{padding:9px 0;text-transform:uppercase}
+#letters button:disabled{opacity:.3;cursor:default}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Hangman</h1>
+<div class="hud"><span>Category <b id="cat">—</b></span><span>Wrong <b id="wrong">0</b>/6</span><button id="new">New word</button></div>
+<canvas id="gallows" width="260" height="240"></canvas>
+<div id="word"></div>
+<div id="letters"></div>
+<div class="msg" id="msg">Pick a letter. Six wrong guesses and the round is over.</div>
+<script src="game.js"></script>
+</body>
+</html>

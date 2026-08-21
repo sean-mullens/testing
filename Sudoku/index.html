@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sudoku</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#8fb8ff;font-weight:600}
+.hud{display:flex;gap:14px;font-size:14px;color:#9aa3c7;font-variant-numeric:tabular-nums;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+#board{display:grid;grid-template-columns:repeat(9,46px);grid-template-rows:repeat(9,46px);
+  background:#4a5280;gap:1px;padding:2px;border-radius:8px;border:2px solid #4a5280}
+.cell{background:#1a1e2e;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;color:#8fb8ff}
+.cell.given{color:#e7e9f3;background:#232840;cursor:default}
+.cell.sel{outline:2px solid #8fb8ff;outline-offset:-2px;background:#2a3350}
+.cell.peer{background:#212639}
+.cell.same{background:#2b3a5c}
+.cell.bad{color:#ff8080}
+.cell.br{margin-right:2px}
+.cell.bb{margin-bottom:2px}
+#pad{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;width:430px}
+#pad button{padding:9px 0}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div class="hud">
+  <select id="diff"><option value="38">Easy</option><option value="46" selected>Medium</option><option value="52">Hard</option></select>
+  <span>Time <b id="time">0:00</b></span>
+  <button id="new">New puzzle</button>
+  <button id="check">Check</button>
+  <button id="solve">Reveal</button>
+</div>
+<div id="board"></div>
+<div id="pad"></div>
+<div class="msg" id="msg">Pick a cell, then type 1–9. Backspace clears it.</div>
+<script src="game.js"></script>
+</body>
+</html>

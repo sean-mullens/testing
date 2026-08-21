@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tic Tac Toe</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:#12141c;color:#e7e9f3;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{margin:0;font-size:18px;letter-spacing:.28em;text-transform:uppercase;color:#5fd6d6;font-weight:600}
+.hud{display:flex;gap:16px;font-size:14px;color:#9aa3c7;font-variant-numeric:tabular-nums;align-items:center}
+.hud b{color:#e7e9f3}
+button,select{background:#232741;color:#e7e9f3;border:1px solid #343a5e;border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+button:hover{background:#2c3154}
+#board{display:grid;grid-template-columns:repeat(3,110px);grid-template-rows:repeat(3,110px);gap:8px}
+.sq{background:#1b1f30;border:1px solid #2a2f4a;border-radius:10px;font-size:52px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.sq:hover{background:#232840}
+.sq.x{color:#5fd6d6}.sq.o{color:#f2c14e}
+.sq.win{background:#25404a;border-color:#5fd6d6}
+.msg{min-height:20px;color:#8f98bd;font-size:13px}
+</style>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<div class="hud">
+  <select id="diff"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard" selected>Unbeatable</option></select>
+  <select id="side"><option value="X">Play as X</option><option value="O">Play as O</option></select>
+  <span>You <b id="w">0</b> · Draw <b id="d">0</b> · CPU <b id="l">0</b></span>
+  <button id="new">New round</button>
+</div>
+<div id="board"></div>
+<div class="msg" id="msg">Your move.</div>
+<script src="game.js"></script>
+</body>
+</html>
